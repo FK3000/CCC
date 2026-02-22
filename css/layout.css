@@ -1,0 +1,201 @@
+/* ============================================================
+   LAYOUT.CSS – Container, Grid, Responsive Breakpoints
+   Carolina Clemens Consulting
+   ============================================================
+   This file handles structural layout only — no colors,
+   no typography. It defines how elements are positioned
+   and how the page adapts to different screen sizes.
+
+   Breakpoints (mobile-first):
+     Default = mobile  (< 768px)
+     md      = tablet  (>= 768px)
+     lg      = desktop (>= 1024px)
+     xl      = wide    (>= 1280px)
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   CONTAINER
+   ----------------------------------------------------------
+   Centers content and limits max-width.
+   Used as a wrapper inside every full-width section.
+
+   Usage:
+     <section class="some-section">
+       <div class="container">
+         ... content here ...
+       </div>
+     </section>
+   ---------------------------------------------------------- */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);   /* 1200px from tokens */
+    margin-inline: auto;               /* center horizontally */
+    padding-inline: var(--space-4);    /* 16px side padding   */
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-inline: var(--space-6);  /* 24px on tablet+ */
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-inline: var(--space-8);  /* 32px on desktop+ */
+    }
+}
+
+
+/* ----------------------------------------------------------
+   MAIN CONTENT OFFSET
+   ----------------------------------------------------------
+   Pushes main content below the fixed header so it doesn't
+   get hidden underneath. Accounts for both topbar and header.
+   ---------------------------------------------------------- */
+
+#content {
+    /* topbar (40px) + header (72px) = 112px total offset */
+    padding-top: calc(var(--topbar-height) + var(--header-height));
+    min-height: 100vh;
+}
+
+
+/* ----------------------------------------------------------
+   SECTION
+   ----------------------------------------------------------
+   Standard vertical spacing for page sections.
+   Use .section on <section> elements inside pages/.
+   ---------------------------------------------------------- */
+
+.section {
+    padding-block: var(--space-12);  /* 48px top/bottom */
+}
+
+@media (min-width: 1024px) {
+    .section {
+        padding-block: var(--space-16);  /* 64px on desktop */
+    }
+}
+
+/* Alternate section background for visual rhythm */
+.section--alt {
+    background-color: var(--color-surface-variant);
+}
+
+
+/* ----------------------------------------------------------
+   GRID SYSTEM
+   ----------------------------------------------------------
+   Simple CSS Grid utilities for common layouts.
+   ---------------------------------------------------------- */
+
+/* 2-column grid — stacks on mobile, side-by-side on tablet+ */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 3-column grid — stacks on mobile, 3-col on desktop */
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* 4-column grid — 2-col on tablet, 4-col on desktop */
+.grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* ----------------------------------------------------------
+   FLEX UTILITIES
+   ---------------------------------------------------------- */
+
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+
+/* Gap utilities (uses spacing tokens) */
+.gap-1  { gap: var(--space-1); }
+.gap-2  { gap: var(--space-2); }
+.gap-4  { gap: var(--space-4); }
+.gap-6  { gap: var(--space-6); }
+.gap-8  { gap: var(--space-8); }
+
+
+/* ----------------------------------------------------------
+   SPACING UTILITIES
+   ----------------------------------------------------------
+   Quick margin/padding helpers for minor adjustments.
+   mt = margin-top, mb = margin-bottom, etc.
+   ---------------------------------------------------------- */
+
+.mt-4  { margin-top: var(--space-4); }
+.mt-8  { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+.mb-4  { margin-bottom: var(--space-4); }
+.mb-8  { margin-bottom: var(--space-8); }
+
+.pt-4  { padding-top: var(--space-4); }
+.pt-8  { padding-top: var(--space-8); }
+.pb-4  { padding-bottom: var(--space-4); }
+.pb-8  { padding-bottom: var(--space-8); }
+
+
+/* ----------------------------------------------------------
+   VISIBILITY UTILITIES
+   ---------------------------------------------------------- */
+
+/* Hide on mobile, show on tablet+ */
+.hide-mobile {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .hide-mobile {
+        display: unset;
+    }
+}
+
+/* Show on mobile only */
+.show-mobile {
+    display: unset;
+}
+
+@media (min-width: 768px) {
+    .show-mobile {
+        display: none;
+    }
+}

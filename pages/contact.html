@@ -1,15 +1,237 @@
 <!--
-    pages/contact.html – Placeholder
-    Wird später mit Formular und Inhalt gefüllt.
+    pages/contact.html – Contact Page Content
+    ===========================================
+    Content only – no <html>, <head>, <body>, nav or footer.
+    Page-specific styles are in css/contact.css.
 
-    Hinweis für später: Kontaktformular braucht einen externen Service
-    (z.B. Formspree.io oder Netlify Forms) da GitHub Pages kein
-    Server-Side Processing unterstützt.
-    NIEMALS API-Keys oder E-Mail-Credentials direkt im Frontend!
+    SECURITY MEASURES:
+    ==================
+    1. Honeypot field: Hidden input "_gotcha" that humans never fill
+       but bots do → Formspree rejects submissions with it filled.
+    2. Formspree backend: Handles email delivery server-side.
+       No email address visible in HTML source.
+    3. autocomplete="off" on honeypot so browsers don't fill it.
+    4. All form submission via Formspree AJAX (no page redirect).
+    5. Success/error feedback shown without exposing email address.
+    6. No personal email address in HTML source → scraping protection.
+
+    SETUP REQUIRED:
+    ===============
+    1. Create free account at https://formspree.io
+    2. Create a new form → copy your Form ID
+    3. Replace "YOUR_FORM_ID" in the fetch URL in contact.js
+    4. Verify your email address in Formspree dashboard
 -->
+
+<!-- Page Hero -->
 <section class="page-hero">
     <div class="container">
-        <h1>Contact</h1>
-        <p>Coming soon.</p>
+        <h1 class="animate-on-scroll" data-i18n="contact.hero.title">Get in touch</h1>
+        <p class="animate-on-scroll" data-i18n="contact.hero.subtitle">
+            Let's talk about how Carolina can support your next initiative.
+        </p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+
+            <!-- Left: Contact Info -->
+            <div class="contact-info animate-on-scroll">
+
+                <h2 data-i18n="contact.info.title">Contact Information</h2>
+                <p data-i18n="contact.info.text">
+                    Whether you have a project in mind, a question about services,
+                    or just want to connect — Carolina looks forward to hearing from you.
+                </p>
+
+                <div class="contact-details">
+
+                    <div class="contact-item">
+                        <div class="contact-item__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-item__content">
+                            <div class="contact-item__label" data-i18n="contact.info.email.label">Email</div>
+                            <!--
+                                Email address is NOT written in plain text here.
+                                This protects against email scrapers / spam bots.
+                                Use the contact form to reach Carolina directly.
+                            -->
+                            <span class="contact-item__value" data-i18n="contact.info.email.value">
+                                Use the form to get in touch
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-item__content">
+                            <div class="contact-item__label" data-i18n="contact.info.location.label">Location</div>
+                            <span class="contact-item__value">Berlin, Germany</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                                <circle cx="12" cy="12" r="9"/>
+                            </svg>
+                        </div>
+                        <div class="contact-item__content">
+                            <div class="contact-item__label" data-i18n="contact.info.languages.label">Languages</div>
+                            <span class="contact-item__value">DE · EN · FR · PT</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="contact-form-wrapper animate-on-scroll">
+
+                <!--
+                    FORM SECURITY:
+                    - No action URL here, submission handled by contact.js via fetch
+                    - novalidate: we handle validation in JS for better UX
+                    - data-form: identifier for contact.js
+                -->
+                <form class="contact-form" id="contact-form" novalidate data-form="contact">
+
+                    <!-- HONEYPOT FIELD
+                         Invisible to humans, visible to bots.
+                         If filled → Formspree rejects the submission.
+                         CSS hides it, autocomplete off prevents autofill.
+                    -->
+                    <div class="honeypot" aria-hidden="true">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- Name -->
+                    <div class="form-field">
+                        <label for="contact-name" data-i18n="contact.form.name.label">Full Name</label>
+                        <input type="text"
+                               id="contact-name"
+                               name="name"
+                               required
+                               minlength="2"
+                               maxlength="100"
+                               autocomplete="name"
+                               data-i18n-placeholder="contact.form.name.placeholder"
+                               placeholder="Your full name">
+                        <span class="field-error" data-i18n="contact.form.name.error">
+                            Please enter your name.
+                        </span>
+                    </div>
+
+                    <!-- Organisation -->
+                    <div class="form-field">
+                        <label for="contact-org" data-i18n="contact.form.org.label">
+                            Organisation <span class="optional" data-i18n="contact.form.optional">(optional)</span>
+                        </label>
+                        <input type="text"
+                               id="contact-org"
+                               name="organisation"
+                               maxlength="150"
+                               autocomplete="organization"
+                               data-i18n-placeholder="contact.form.org.placeholder"
+                               placeholder="Your organisation or NGO">
+                    </div>
+
+                    <!-- Phone (optional) -->
+                    <div class="form-field">
+                        <label for="contact-phone" data-i18n="contact.form.phone.label">
+                            Phone <span class="optional" data-i18n="contact.form.optional">(optional)</span>
+                        </label>
+                        <input type="tel"
+                               id="contact-phone"
+                               name="phone"
+                               maxlength="30"
+                               autocomplete="tel"
+                               data-i18n-placeholder="contact.form.phone.placeholder"
+                               placeholder="+49 ...">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-field">
+                        <label for="contact-email" data-i18n="contact.form.email.label">Email</label>
+                        <input type="email"
+                               id="contact-email"
+                               name="email"
+                               required
+                               maxlength="150"
+                               autocomplete="email"
+                               data-i18n-placeholder="contact.form.email.placeholder"
+                               placeholder="your@email.com">
+                        <span class="field-error" data-i18n="contact.form.email.error">
+                            Please enter a valid email address.
+                        </span>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-field">
+                        <label for="contact-message" data-i18n="contact.form.message.label">Message</label>
+                        <textarea id="contact-message"
+                                  name="message"
+                                  required
+                                  minlength="10"
+                                  maxlength="2000"
+                                  rows="5"
+                                  data-i18n-placeholder="contact.form.message.placeholder"
+                                  placeholder="How can Carolina help you?"></textarea>
+                        <span class="field-error" data-i18n="contact.form.message.error">
+                            Please enter a message (min. 10 characters).
+                        </span>
+                        <!-- Character counter -->
+                        <span class="char-counter">
+                            <span id="char-count">0</span> / 2000
+                        </span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit" id="contact-submit">
+                        <span class="btn-submit__text" data-i18n="contact.form.submit">Send Message</span>
+                        <span class="btn-submit__loading" aria-hidden="true">
+                            <svg class="spinner" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="32" stroke-dashoffset="32"/>
+                            </svg>
+                        </span>
+                    </button>
+
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h3 data-i18n="contact.form.success.title">Message sent!</h3>
+                    <p data-i18n="contact.form.success.text">
+                        Thank you for reaching out. Carolina will get back to you shortly.
+                    </p>
+                </div>
+
+                <!-- Error Message (hidden by default) -->
+                <div class="form-error-msg" id="form-error" role="alert" aria-live="polite" hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p data-i18n="contact.form.error.text">
+                        Something went wrong. Please try again or send an email directly.
+                    </p>
+                </div>
+
+            </div>
+        </div>
     </div>
 </section>

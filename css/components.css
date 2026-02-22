@@ -1,0 +1,518 @@
+/* ============================================================
+   COMPONENTS.CSS – UI Components
+   Carolina Clemens Consulting
+   ============================================================
+   Styles for all reusable UI components:
+   - Top bar (language switcher)
+   - Header & Navigation
+   - Buttons
+   - Cards
+   - Footer
+   - Loading spinner
+   - Mobile menu
+
+   All values reference tokens from tokens.css.
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   TOP BAR
+   ----------------------------------------------------------
+   Thin bar at the very top of the page for language switcher.
+   Fixed position so it always stays visible.
+   ---------------------------------------------------------- */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--topbar-height);         /* 40px */
+    background-color: var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+}
+
+.top-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;            /* language selector to the right */
+    height: 100%;
+}
+
+/* Language selector wrapper */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+/* Separator pipe between language buttons */
+.separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: var(--type-label-small-size);
+    user-select: none;
+}
+
+/* Individual language button */
+.lang-btn {
+    font-family: var(--font-body);
+    font-size: var(--type-label-small-size);  /* 12px */
+    font-weight: var(--type-label-weight);
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    transition: color var(--transition-fast),
+                background-color var(--transition-fast);
+}
+
+.lang-btn:hover {
+    color: var(--color-on-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active language gets full highlight */
+.lang-btn.active {
+    color: var(--color-on-primary);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ----------------------------------------------------------
+   HEADER & NAVIGATION
+   ----------------------------------------------------------
+   Fixed below the top bar. Contains logo and nav links.
+   ---------------------------------------------------------- */
+
+.header {
+    position: fixed;
+    top: var(--topbar-height);            /* sits directly below top bar */
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: var(--header-height);         /* 72px */
+    background-color: var(--color-surface);
+    box-shadow: var(--elevation-1);
+    display: flex;
+    align-items: center;
+}
+
+/* Inner nav wrapper — logo left, links center, CTA right */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    width: 100%;
+}
+
+
+/* ------ LOGO ------ */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    flex-shrink: 0;                       /* logo never shrinks */
+}
+
+.logo-globe {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+/* "carolina clemens" – main logo text */
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-medium-size);  /* 20px */
+    font-weight: 700;
+    color: var(--color-on-surface);
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+}
+
+/* "consulting" – subtitle under logo */
+.logo-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--type-label-large-size);   /* 14px */
+    font-weight: var(--type-label-weight);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* "every life matters" – tagline, hidden on small screens */
+.logo-tagline {
+    font-family: var(--font-body);
+    font-size: var(--type-label-small-size);   /* 12px */
+    font-weight: 400;
+    color: var(--color-on-surface-variant);
+    font-style: italic;
+}
+
+@media (max-width: 767px) {
+    .logo-tagline {
+        display: none;
+    }
+}
+
+
+/* ------ NAV LINKS ------ */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: var(--type-label-large-size);   /* 14px */
+    font-weight: var(--type-label-weight);
+    color: var(--color-on-surface-variant);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast),
+                background-color var(--transition-fast);
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-primary-light);
+}
+
+/* Active page link */
+.nav-link[aria-current="page"],
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+
+/* ------ NAV CTA BUTTON ------ */
+
+.nav-actions {
+    flex-shrink: 0;
+}
+
+/* Hide nav links & CTA on mobile — hamburger menu takes over */
+@media (max-width: 767px) {
+    .nav-menu,
+    .nav-actions {
+        display: none;
+    }
+
+    /* Show when mobile menu is open */
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(var(--topbar-height) + var(--header-height));
+        left: 0;
+        right: 0;
+        background-color: var(--color-surface);
+        padding: var(--space-4);
+        box-shadow: var(--elevation-2);
+        gap: var(--space-2);
+    }
+
+    .nav-menu.open + .nav-actions {
+        display: block;
+        position: absolute;
+        top: calc(var(--topbar-height) + var(--header-height) + 180px);
+        left: var(--space-4);
+        right: var(--space-4);
+    }
+}
+
+
+/* ------ HAMBURGER BUTTON ------ */
+
+.mobile-menu-toggle {
+    display: none;                         /* hidden on desktop */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+}
+
+.mobile-menu-toggle:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* The three lines of the hamburger icon */
+.mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-on-surface);
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-normal),
+                opacity var(--transition-normal);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}
+
+/* Animate to X when menu is open */
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ----------------------------------------------------------
+   BUTTONS
+   ----------------------------------------------------------
+   Material Design 3 button variants:
+   - .btn-primary   = Filled button (main CTA)
+   - .btn-outlined  = Outlined button (secondary action)
+   - .btn-text      = Text button (low emphasis)
+   ---------------------------------------------------------- */
+
+/* Shared button base */
+.btn-primary,
+.btn-outlined,
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-size: var(--type-label-large-size);   /* 14px */
+    font-weight: var(--type-label-weight);
+    line-height: 1;
+    padding: var(--space-3) var(--space-6);    /* 12px 24px */
+    border-radius: var(--radius-full);         /* pill shape */
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color var(--transition-fast),
+                color var(--transition-fast),
+                border-color var(--transition-fast),
+                box-shadow var(--transition-fast);
+}
+
+/* Filled – primary action */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-on-primary);
+    box-shadow: var(--elevation-2);
+}
+
+/* Outlined – secondary action */
+.btn-outlined {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-outlined:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+/* Text – low emphasis */
+.btn-text {
+    background-color: transparent;
+    color: var(--color-primary);
+    padding-inline: var(--space-3);
+}
+
+.btn-text:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+/* Focus state for all buttons */
+.btn-primary:focus-visible,
+.btn-outlined:focus-visible,
+.btn-text:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+
+/* ----------------------------------------------------------
+   CARDS
+   ----------------------------------------------------------
+   Used for service listings, team members, project highlights.
+   ---------------------------------------------------------- */
+
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: box-shadow var(--transition-normal),
+                transform var(--transition-normal);
+}
+
+.card:hover {
+    box-shadow: var(--elevation-2);
+    transform: translateY(-2px);
+}
+
+/* Card with colored top border accent */
+.card--accent {
+    border-top: 3px solid var(--color-primary);
+}
+
+/* Card on surface-variant background */
+.card--filled {
+    background-color: var(--color-surface-variant);
+    border-color: transparent;
+}
+
+
+/* ----------------------------------------------------------
+   LOADING SPINNER
+   ----------------------------------------------------------
+   Shown in <main> while router.js loads the page content.
+   ---------------------------------------------------------- */
+
+.page-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-outline-variant);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ----------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------- */
+
+.footer {
+    background-color: var(--color-surface-variant);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+}
+
+.footer-content {
+    /* Full-width content area inside container */
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .footer-main {
+        grid-template-columns: 1fr 2fr;    /* brand left, links right */
+        gap: var(--space-12);
+    }
+}
+
+/* Footer logo + tagline */
+.footer-brand .logo {
+    margin-bottom: var(--space-3);
+}
+
+.footer-tagline {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small-size);
+    color: var(--color-on-surface-variant);
+    font-style: italic;
+    margin: 0;
+}
+
+/* Footer link columns */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+}
+
+.footer-column {
+    min-width: 160px;
+}
+
+.footer-column h4 {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-small-size);   /* 16px */
+    font-weight: var(--type-title-weight);
+    color: var(--color-on-surface);
+    margin-bottom: var(--space-4);
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-column a {
+    font-size: var(--type-body-small-size);    /* 14px */
+    color: var(--color-on-surface-variant);
+    transition: color var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--color-primary);
+}
+
+/* Bottom bar with copyright */
+.footer-bottom {
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-outline-variant);
+}
+
+.footer-bottom p {
+    font-size: var(--type-label-small-size);   /* 12px */
+    color: var(--color-on-surface-variant);
+    text-align: center;
+    margin: 0;
+}

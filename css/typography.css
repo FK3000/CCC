@@ -1,0 +1,186 @@
+/* ============================================================
+   TYPOGRAPHY.CSS – Text Utility Classes
+   Carolina Clemens Consulting
+   ============================================================
+   Material Design 3 type scale implemented as utility classes.
+   Apply these classes to any element to get consistent text
+   styling across the entire site.
+
+   Usage example:
+     <h2 class="headline-large">Our Services</h2>
+     <p class="body-medium">Description text here...</p>
+     <span class="label-large">Button label</span>
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   DISPLAY
+   ----------------------------------------------------------
+   For the largest hero text — used once per page maximum.
+   ---------------------------------------------------------- */
+
+.display-large {
+    font-family: var(--font-heading);
+    font-size: var(--type-display-size);      /* 48px */
+    font-weight: var(--type-display-weight);
+    line-height: var(--type-display-line);
+    color: var(--color-on-surface);
+}
+
+/* Slightly smaller display variant for subhero text */
+.display-medium {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;                        /* 40px */
+    font-weight: var(--type-display-weight);
+    line-height: var(--type-display-line);
+    color: var(--color-on-surface);
+}
+
+
+/* ----------------------------------------------------------
+   HEADLINE
+   ----------------------------------------------------------
+   For section titles (e.g. "What we do", "About us").
+   ---------------------------------------------------------- */
+
+.headline-large {
+    font-family: var(--font-heading);
+    font-size: var(--type-headline-size);     /* 32px */
+    font-weight: var(--type-headline-weight);
+    line-height: var(--type-headline-line);
+    color: var(--color-on-surface);
+}
+
+.headline-medium {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;                       /* 28px */
+    font-weight: var(--type-headline-weight);
+    line-height: var(--type-headline-line);
+    color: var(--color-on-surface);
+}
+
+.headline-small {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;                        /* 24px */
+    font-weight: var(--type-headline-weight);
+    line-height: var(--type-headline-line);
+    color: var(--color-on-surface);
+}
+
+
+/* ----------------------------------------------------------
+   TITLE
+   ----------------------------------------------------------
+   For card titles, subsection headings, nav items.
+   ---------------------------------------------------------- */
+
+.title-large {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-large-size);  /* 24px */
+    font-weight: var(--type-title-weight);
+    line-height: var(--type-title-line);
+    color: var(--color-on-surface);
+}
+
+.title-medium {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-medium-size); /* 20px */
+    font-weight: var(--type-title-weight);
+    line-height: var(--type-title-line);
+    color: var(--color-on-surface);
+}
+
+.title-small {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-small-size);  /* 16px */
+    font-weight: var(--type-title-weight);
+    line-height: var(--type-title-line);
+    color: var(--color-on-surface);
+}
+
+
+/* ----------------------------------------------------------
+   BODY
+   ----------------------------------------------------------
+   For paragraphs, descriptions, and general content text.
+   ---------------------------------------------------------- */
+
+.body-large {
+    font-family: var(--font-body);
+    font-size: var(--type-body-large-size);   /* 16px */
+    font-weight: var(--type-body-weight);
+    line-height: var(--type-body-line);
+    color: var(--color-on-surface);
+}
+
+.body-medium {
+    font-family: var(--font-body);
+    font-size: var(--type-body-medium-size);  /* 15px */
+    font-weight: var(--type-body-weight);
+    line-height: var(--type-body-line);
+    color: var(--color-on-surface);
+}
+
+.body-small {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small-size);   /* 14px */
+    font-weight: var(--type-body-weight);
+    line-height: var(--type-body-line);
+    color: var(--color-on-surface);
+}
+
+
+/* ----------------------------------------------------------
+   LABEL
+   ----------------------------------------------------------
+   For buttons, tags, captions, and supporting text.
+   Uses font-weight 600 to stay readable at small sizes.
+   ---------------------------------------------------------- */
+
+.label-large {
+    font-family: var(--font-body);
+    font-size: var(--type-label-large-size);  /* 14px */
+    font-weight: var(--type-label-weight);
+    line-height: var(--type-label-line);
+    color: var(--color-on-surface);
+}
+
+.label-small {
+    font-family: var(--font-body);
+    font-size: var(--type-label-small-size);  /* 12px */
+    font-weight: var(--type-label-weight);
+    line-height: var(--type-label-line);
+    color: var(--color-on-surface-variant);
+}
+
+
+/* ----------------------------------------------------------
+   COLOR MODIFIERS
+   ----------------------------------------------------------
+   Apply these alongside any typography class to change color.
+   Example: <p class="body-medium text-muted">...</p>
+   ---------------------------------------------------------- */
+
+.text-primary        { color: var(--color-primary) !important; }
+.text-primary-dark   { color: var(--color-primary-dark) !important; }
+.text-muted          { color: var(--color-on-surface-variant) !important; }
+.text-on-primary     { color: var(--color-on-primary) !important; }
+
+
+/* ----------------------------------------------------------
+   ALIGNMENT MODIFIERS
+   ---------------------------------------------------------- */
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+
+/* ----------------------------------------------------------
+   WEIGHT MODIFIERS
+   ---------------------------------------------------------- */
+
+.font-light   { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-medium  { font-weight: 600; }
+.font-bold    { font-weight: 700; }

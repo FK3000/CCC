@@ -1,0 +1,261 @@
+/* ============================================================
+   SERVICES.CSS – Page-specific styles for pages/services.html
+   Carolina Clemens Consulting
+   ============================================================
+   All values reference tokens from tokens.css.
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   PAGE HERO
+   Same pattern as about.css – consistent across all pages.
+   ---------------------------------------------------------- */
+
+.page-hero {
+    background: linear-gradient(135deg,
+        var(--color-primary-dark) 0%,
+        var(--color-primary) 100%);
+    padding-block: var(--space-12) var(--space-16);
+    text-align: center;
+}
+
+.page-hero h1 {
+    color: var(--color-on-primary);
+    font-size: var(--type-display-size);
+    font-weight: var(--type-display-weight);
+    margin-bottom: var(--space-3);
+}
+
+.page-hero p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--type-title-medium-size);
+    font-weight: 400;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 0;
+}
+
+
+/* ----------------------------------------------------------
+   SERVICES GRID
+   3-column on desktop, 2 on tablet, 1 on mobile.
+   ---------------------------------------------------------- */
+
+.services-section {
+    padding-block: var(--space-16);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+/* ------ SERVICE CARD ------ */
+
+.service-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    transition: box-shadow var(--transition-normal),
+                transform var(--transition-normal),
+                border-color var(--transition-normal);
+}
+
+.service-card:hover {
+    box-shadow: var(--elevation-2);
+    transform: translateY(-3px);
+    border-color: var(--color-primary);
+}
+
+.service-card__icon {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-card__icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-primary);
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-medium-size);
+    font-weight: var(--type-title-weight);
+    color: var(--color-on-surface);
+    margin: 0;
+}
+
+.service-card p {
+    font-size: var(--type-body-medium-size);
+    color: var(--color-on-surface-variant);
+    line-height: var(--type-body-line);
+    margin: 0;
+    flex-grow: 1;
+}
+
+
+/* ----------------------------------------------------------
+   APPROACH SECTION
+   ---------------------------------------------------------- */
+
+.approach-section {
+    background-color: var(--color-surface-variant);
+    padding-block: var(--space-16);
+}
+
+.approach-section h2 {
+    font-size: var(--type-headline-size);
+    color: var(--color-on-surface);
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+.approach-section > .container > p {
+    font-size: var(--type-body-large-size);
+    color: var(--color-on-surface-variant);
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+}
+
+.approach-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .approach-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--elevation-1);
+}
+
+.step__number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 40px;
+}
+
+.step__content h4 {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-small-size);
+    font-weight: var(--type-title-weight);
+    color: var(--color-on-surface);
+    margin-bottom: var(--space-2);
+}
+
+.step__content p {
+    font-size: var(--type-body-small-size);
+    color: var(--color-on-surface-variant);
+    line-height: var(--type-body-line);
+    margin: 0;
+}
+
+
+/* ----------------------------------------------------------
+   CTA SECTION
+   ---------------------------------------------------------- */
+
+.services-cta {
+    background: linear-gradient(135deg,
+        var(--color-primary) 0%,
+        var(--color-primary-dark) 100%);
+    padding-block: var(--space-16);
+    text-align: center;
+}
+
+.services-cta h2 {
+    color: var(--color-on-primary);
+    font-size: var(--type-headline-size);
+    margin-bottom: var(--space-4);
+}
+
+.services-cta p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--type-body-large-size);
+    max-width: 480px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+}
+
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: var(--type-label-large-size);
+    font-weight: var(--type-label-weight);
+    color: var(--color-primary-dark);
+    background-color: var(--color-on-primary);
+    padding: var(--space-3) var(--space-8);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: background-color var(--transition-fast),
+                box-shadow var(--transition-fast),
+                transform var(--transition-fast);
+}
+
+.btn-cta:hover {
+    background-color: var(--color-primary-light);
+    box-shadow: var(--elevation-3);
+    transform: translateY(-2px);
+    color: var(--color-primary-dark);
+}
+
+
+/* ----------------------------------------------------------
+   SCROLL ANIMATIONS
+   ---------------------------------------------------------- */
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--transition-slow),
+                transform var(--transition-slow);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

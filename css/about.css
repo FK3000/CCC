@@ -1,0 +1,380 @@
+/* ============================================================
+   ABOUT.CSS – Page-specific styles for pages/about.html
+   Carolina Clemens Consulting
+   ============================================================
+   These styles are specific to the About page only.
+   All values reference tokens from tokens.css.
+   ============================================================ */
+
+.page-hero {
+        background: linear-gradient(135deg,
+            var(--color-primary-dark) 0%,
+            var(--color-primary) 100%);
+        padding-block: var(--space-12) var(--space-16);
+        text-align: center;
+    }
+
+    .page-hero h1 {
+        color: var(--color-on-primary);
+        font-size: var(--type-display-size);
+        font-weight: var(--type-display-weight);
+        margin-bottom: var(--space-3);
+    }
+
+    .page-hero p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: var(--type-title-medium-size);
+        font-weight: 400;
+        margin: 0;
+    }
+
+    /* Highlight text in blue on white bg (bio paragraphs) */
+    .highlight {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+
+    /* ----------------------------------------------------------
+       PROFILE SECTION
+       ----------------------------------------------------------
+       Two-column layout: photo card left, bio text right.
+       Stacks on mobile.
+       ---------------------------------------------------------- */
+
+    .profile-section {
+        padding-block: var(--space-16);
+    }
+
+    .profile-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        align-items: start;
+    }
+
+    @media (min-width: 768px) {
+        .profile-grid {
+            /* Photo gets fixed width, bio takes remaining space */
+            grid-template-columns: 320px 1fr;
+            gap: var(--space-12);
+        }
+    }
+
+
+    /* ------ PHOTO CARD ------ */
+
+    .photo-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .photo-frame {
+        border-radius: var(--radius-lg);
+        overflow: hidden;               /* clips image to rounded corners */
+        box-shadow: var(--elevation-3);
+        background-color: var(--color-surface-variant);
+        aspect-ratio: 3 / 4;           /* portrait format */
+    }
+
+    .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;             /* fills frame without distortion */
+        object-position: center top;   /* keeps face in frame on crop */
+        display: block;
+    }
+
+    .photo-caption {
+        padding-inline: var(--space-2);
+    }
+
+    .photo-caption .name {
+        font-family: var(--font-heading);
+        font-size: var(--type-title-medium-size);
+        font-weight: 700;
+        color: var(--color-on-surface);
+    }
+
+    .photo-caption .title {
+        font-size: var(--type-body-small-size);
+        color: var(--color-on-surface-variant);
+        margin-top: var(--space-1);
+    }
+
+
+    /* ------ BIO CONTENT ------ */
+
+    .bio-content h2 {
+        font-size: var(--type-headline-size);
+        color: var(--color-on-surface);
+        margin-bottom: var(--space-6);
+        line-height: 1.2;
+    }
+
+    .bio-content p {
+        font-size: var(--type-body-large-size);
+        color: var(--color-on-surface-variant);
+        line-height: var(--type-body-line);
+        margin-bottom: var(--space-4);
+    }
+
+    /* Thin horizontal divider between bio sections */
+    .bio-divider {
+        height: 1px;
+        background-color: var(--color-outline-variant);
+        margin-block: var(--space-6);
+    }
+
+
+    /* ------ KEY FACTS GRID ------ */
+
+    .key-facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+    }
+
+    .fact-item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+
+    .fact-label {
+        font-size: var(--type-label-small-size);  /* 12px */
+        font-weight: var(--type-label-weight);
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    .fact-value {
+        font-size: var(--type-body-medium-size);
+        font-weight: 600;
+        color: var(--color-on-surface);
+    }
+
+
+    /* ------ EXPERTISE TAGS ------ */
+
+    .expertise-heading {
+        font-size: var(--type-label-large-size);
+        font-weight: var(--type-label-weight);
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: var(--space-3);
+    }
+
+    .expertise-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+    }
+
+    /* Individual tag pill */
+    .tag {
+        display: inline-block;
+        font-size: var(--type-label-small-size);   /* 12px */
+        font-weight: var(--type-label-weight);
+        color: var(--color-primary-dark);
+        background-color: var(--color-primary-light);
+        border: 1px solid var(--color-outline-variant);
+        padding: var(--space-1) var(--space-3);
+        border-radius: var(--radius-full);
+        transition: background-color var(--transition-fast),
+                    color var(--transition-fast);
+    }
+
+    .tag:hover {
+        background-color: var(--color-primary);
+        color: var(--color-on-primary);
+        border-color: var(--color-primary);
+    }
+
+
+    /* ----------------------------------------------------------
+       TIMELINE SECTION
+       ---------------------------------------------------------- */
+
+    .timeline-section {
+        background-color: var(--color-surface-variant);
+        padding-block: var(--space-16);
+    }
+
+    .section-title {
+        font-size: var(--type-headline-size);
+        color: var(--color-on-surface);
+        margin-bottom: var(--space-12);
+        text-align: center;
+    }
+
+    /* Timeline vertical line + items */
+    .timeline {
+        position: relative;
+        max-width: 720px;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    /* Vertical line connecting the dots */
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 52px;                    /* aligns with center of .timeline-dot */
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--color-outline-variant);
+    }
+
+    .timeline-item {
+        display: grid;
+        grid-template-columns: 104px 1fr;  /* year dot + content */
+        gap: var(--space-6);
+        align-items: start;
+    }
+
+    /* Year bubble */
+    .timeline-dot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-full);
+        background-color: var(--color-primary);
+        color: var(--color-on-primary);
+        font-family: var(--font-heading);
+        font-size: var(--type-label-large-size);
+        font-weight: 700;
+        position: relative;
+        z-index: 1;                    /* sits on top of the vertical line */
+        flex-shrink: 0;
+        margin-left: var(--space-4);   /* centers the dot on the line */
+        box-shadow: var(--elevation-2);
+    }
+
+    /* Timeline content card */
+    .timeline-body {
+        background-color: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: var(--space-6);
+        box-shadow: var(--elevation-1);
+        border-left: 3px solid var(--color-primary);
+    }
+
+    .timeline-body h3 {
+        font-size: var(--type-title-medium-size);
+        font-weight: 700;
+        color: var(--color-on-surface);
+        margin-bottom: var(--space-1);
+    }
+
+    /* Organisation name below title */
+    .timeline-body .org {
+        font-size: var(--type-label-large-size);
+        font-weight: var(--type-label-weight);
+        color: var(--color-primary);
+        margin-bottom: var(--space-3);
+    }
+
+    .timeline-body p {
+        font-size: var(--type-body-medium-size);
+        color: var(--color-on-surface-variant);
+        line-height: var(--type-body-line);
+        margin: 0;
+    }
+
+    /* Mobile: collapse timeline to single column */
+    @media (max-width: 600px) {
+        .timeline::before {
+            display: none;
+        }
+
+        .timeline-item {
+            grid-template-columns: 1fr;
+        }
+
+        .timeline-dot {
+            width: 48px;
+            height: 48px;
+            margin-left: 0;
+        }
+    }
+
+
+    /* ----------------------------------------------------------
+       CTA SECTION
+       ---------------------------------------------------------- */
+
+    .about-cta {
+        background: linear-gradient(135deg,
+            var(--color-primary) 0%,
+            var(--color-primary-dark) 100%);
+        padding-block: var(--space-16);
+        text-align: center;
+    }
+
+    .about-cta h2 {
+        color: var(--color-on-primary);
+        font-size: var(--type-headline-size);
+        margin-bottom: var(--space-4);
+    }
+
+    .about-cta p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: var(--type-body-large-size);
+        max-width: 480px;
+        margin-inline: auto;
+        margin-bottom: var(--space-8);
+    }
+
+    /* CTA button — white filled on blue background */
+    .btn-cta {
+        display: inline-flex;
+        align-items: center;
+        font-family: var(--font-body);
+        font-size: var(--type-label-large-size);
+        font-weight: var(--type-label-weight);
+        color: var(--color-primary-dark);
+        background-color: var(--color-on-primary);
+        padding: var(--space-3) var(--space-8);
+        border-radius: var(--radius-full);
+        text-decoration: none;
+        transition: background-color var(--transition-fast),
+                    box-shadow var(--transition-fast),
+                    transform var(--transition-fast);
+    }
+
+    .btn-cta:hover {
+        background-color: var(--color-primary-light);
+        box-shadow: var(--elevation-3);
+        transform: translateY(-2px);
+        color: var(--color-primary-dark);
+    }
+
+
+    /* ----------------------------------------------------------
+       SCROLL ANIMATIONS
+       ----------------------------------------------------------
+       Elements with .animate-on-scroll start invisible and
+       fade up when they enter the viewport.
+       main.js adds .visible class via IntersectionObserver.
+       ---------------------------------------------------------- */
+
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity var(--transition-slow),
+                    transform var(--transition-slow);
+    }
+
+    .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }

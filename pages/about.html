@@ -1,8 +1,12 @@
 <!--
     pages/about.html – About Page Content
     =======================================
-    NUR Inhalt – kein <html>, <head>, <body>, Nav oder Footer!
+    Content only – no <html>, <head>, <body>, nav or footer.
+    Page-specific styles are in css/about.css.
 -->
+<!-- ============================================================
+     PAGE CONTENT
+     ============================================================ -->
 
 <!-- Page Hero -->
 <section class="page-hero">
@@ -19,25 +23,11 @@
     <div class="container">
         <div class="profile-grid">
 
-            <!-- Foto -->
+            <!-- Photo -->
             <div class="photo-card animate-on-scroll">
                 <div class="photo-frame">
-
-                        <img src="images/carolina.jpg"
-                             alt="foto">
-                    <!--
-                        Gutes alt-Attribut: Beschreibt Person + Rolle.
-                        Wichtig für Accessibility und SEO.
-                    -->
-                        <!-- <div class="photo-placeholder" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
-                             aria-hidden="true">
-                            <circle cx="12" cy="8" r="4"/>
-                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-                        </svg>
-                        <span>Photo coming soon</span>
-                    </div>-->
-                    
+                    <img src="images/carolina.jpg"
+                         alt="Carolina Clemens – Founder and Principal Consultant">
                 </div>
                 <div class="photo-caption">
                     <div class="name">Carolina Clemens</div>
@@ -47,20 +37,22 @@
 
             <!-- Bio -->
             <div class="bio-content">
-                <!--
-                    data-i18n-html: Erlaubt HTML im Übersetzungstext
-                    (z.B. <span class="highlight">impact</span>).
-                    Nur für eigene, kontrollierte Inhalte!
-                -->
                 <h2 class="animate-on-scroll" data-i18n="about.bio.headline">
                     Driven by impact, guided by expertise.
                 </h2>
 
                 <p class="animate-on-scroll" data-i18n="about.bio.p1">
-                    With over 15 years of experience...
+                    With over 15 years of experience in international development and humanitarian aid,
+                    Carolina Clemens has led <span class="highlight">strategic initiatives</span> across
+                    Africa, Asia, and Latin America. Her work focuses on creating sustainable change by
+                    strengthening local systems and building the capacities of communities.
                 </p>
                 <p class="animate-on-scroll" data-i18n="about.bio.p2">
-                    Carolina holds advanced degrees...
+                    Carolina holds advanced degrees in International Relations and Public Health, and has
+                    worked with leading international organisations including the
+                    <span class="highlight">United Nations</span>, the
+                    <span class="highlight">World Bank</span>, and major NGOs in complex,
+                    multi-stakeholder environments.
                 </p>
 
                 <div class="bio-divider" aria-hidden="true"></div>
@@ -94,11 +86,9 @@
                     <span class="tag" role="listitem" data-i18n="about.bio.tag1">Strategic Planning</span>
                     <span class="tag" role="listitem" data-i18n="about.bio.tag2">Capacity Building</span>
                     <span class="tag" role="listitem" data-i18n="about.bio.tag3">Emergency Response</span>
-                    <!-- M&E bleibt in allen Sprachen gleich -->
                     <span class="tag" role="listitem">M&amp;E Frameworks</span>
                     <span class="tag" role="listitem" data-i18n="about.bio.tag5">Stakeholder Engagement</span>
                     <span class="tag" role="listitem" data-i18n="about.bio.tag6">Program Design</span>
-                    <!-- WASH ist ein Fachbegriff, kein Übersetzungsbedarf -->
                     <span class="tag" role="listitem">WASH</span>
                     <span class="tag" role="listitem" data-i18n="about.bio.tag8">Food Security</span>
                 </div>
@@ -115,10 +105,6 @@
             Professional Journey
         </h2>
 
-        <!--
-            role="list" auf der Timeline und role="listitem" auf den Einträgen:
-            Screenreader erkennen das als Liste und navigieren besser.
-        -->
         <div class="timeline" role="list">
 
             <div class="timeline-item animate-on-scroll" role="listitem">
@@ -126,7 +112,10 @@
                 <div class="timeline-body">
                     <h3 data-i18n="about.tl1.title">Founder &amp; Principal Consultant</h3>
                     <div class="org">Carolina Clemens Consulting</div>
-                    <p data-i18n="about.tl1.text">Founded an independent consulting firm...</p>
+                    <p data-i18n="about.tl1.text">
+                        Founded an independent consulting firm specialising in development aid strategy,
+                        capacity building, and humanitarian program design for NGOs and international organisations.
+                    </p>
                 </div>
             </div>
 
@@ -135,7 +124,10 @@
                 <div class="timeline-body">
                     <h3 data-i18n="about.tl2.title">Senior Program Officer</h3>
                     <div class="org">UNICEF – East Africa Regional Office</div>
-                    <p data-i18n="about.tl2.text">Led multi-country programs...</p>
+                    <p data-i18n="about.tl2.text">
+                        Led multi-country programs in nutrition, WASH, and education emergency response
+                        across Kenya, Ethiopia, and Somalia.
+                    </p>
                 </div>
             </div>
 
@@ -144,7 +136,10 @@
                 <div class="timeline-body">
                     <h3 data-i18n="about.tl3.title">Program Manager</h3>
                     <div class="org">World Bank – Social Protection Unit</div>
-                    <p data-i18n="about.tl3.text">Managed social protection programs...</p>
+                    <p data-i18n="about.tl3.text">
+                        Managed social protection and development programs in Southeast Asia with focus
+                        on monitoring, evaluation, and results-based management.
+                    </p>
                 </div>
             </div>
 
@@ -153,7 +148,10 @@
                 <div class="timeline-body">
                     <h3 data-i18n="about.tl4.title">Field Coordinator</h3>
                     <div class="org">MSF – Colombia &amp; Haiti</div>
-                    <p data-i18n="about.tl4.text">Coordinated emergency medical operations...</p>
+                    <p data-i18n="about.tl4.text">
+                        Coordinated emergency medical operations and logistics in active crisis zones,
+                        managing cross-functional international teams on the ground.
+                    </p>
                 </div>
             </div>
 
