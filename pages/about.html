@@ -1,0 +1,174 @@
+<!--
+    pages/about.html – About Page Content
+    =======================================
+    NUR Inhalt – kein <html>, <head>, <body>, Nav oder Footer!
+-->
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1 class="animate-on-scroll" data-i18n="about.hero.title">About Carolina Clemens</h1>
+        <p class="animate-on-scroll" data-i18n="about.hero.subtitle">
+            15+ years in international development &amp; humanitarian aid
+        </p>
+    </div>
+</section>
+
+<!-- Profile Section -->
+<section class="profile-section">
+    <div class="container">
+        <div class="profile-grid">
+
+            <!-- Foto -->
+            <div class="photo-card animate-on-scroll">
+                <div class="photo-frame">
+
+                        <img src="images/carolina.jpg"
+                             alt="foto">
+                    <!--
+                        Gutes alt-Attribut: Beschreibt Person + Rolle.
+                        Wichtig für Accessibility und SEO.
+                    -->
+                        <!-- <div class="photo-placeholder" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                             aria-hidden="true">
+                            <circle cx="12" cy="8" r="4"/>
+                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                        </svg>
+                        <span>Photo coming soon</span>
+                    </div>-->
+                    
+                </div>
+                <div class="photo-caption">
+                    <div class="name">Carolina Clemens</div>
+                    <div class="title" data-i18n="about.photo.title">Founder &amp; Principal Consultant</div>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="bio-content">
+                <!--
+                    data-i18n-html: Erlaubt HTML im Übersetzungstext
+                    (z.B. <span class="highlight">impact</span>).
+                    Nur für eigene, kontrollierte Inhalte!
+                -->
+                <h2 class="animate-on-scroll" data-i18n="about.bio.headline">
+                    Driven by impact, guided by expertise.
+                </h2>
+
+                <p class="animate-on-scroll" data-i18n="about.bio.p1">
+                    With over 15 years of experience...
+                </p>
+                <p class="animate-on-scroll" data-i18n="about.bio.p2">
+                    Carolina holds advanced degrees...
+                </p>
+
+                <div class="bio-divider" aria-hidden="true"></div>
+
+                <!-- Key Facts -->
+                <div class="key-facts animate-on-scroll">
+                    <div class="fact-item">
+                        <div class="fact-label" data-i18n="about.bio.fact.location.label">Based in</div>
+                        <div class="fact-value">Berlin, Germany</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label" data-i18n="about.bio.fact.languages.label">Languages</div>
+                        <div class="fact-value">DE · EN · FR · PT</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label" data-i18n="about.bio.fact.experience.label">Experience</div>
+                        <div class="fact-value" data-i18n="about.bio.fact.experience.value">15+ Years</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label" data-i18n="about.bio.fact.regions.label">Regions</div>
+                        <div class="fact-value">Africa · Asia · LATAM</div>
+                    </div>
+                </div>
+
+                <div class="bio-divider" aria-hidden="true"></div>
+
+                <!-- Expertise Tags -->
+                <p class="expertise-heading animate-on-scroll"
+                   data-i18n="about.bio.expertise.title">Areas of Expertise</p>
+                <div class="expertise-tags animate-on-scroll" role="list">
+                    <span class="tag" role="listitem" data-i18n="about.bio.tag1">Strategic Planning</span>
+                    <span class="tag" role="listitem" data-i18n="about.bio.tag2">Capacity Building</span>
+                    <span class="tag" role="listitem" data-i18n="about.bio.tag3">Emergency Response</span>
+                    <!-- M&E bleibt in allen Sprachen gleich -->
+                    <span class="tag" role="listitem">M&amp;E Frameworks</span>
+                    <span class="tag" role="listitem" data-i18n="about.bio.tag5">Stakeholder Engagement</span>
+                    <span class="tag" role="listitem" data-i18n="about.bio.tag6">Program Design</span>
+                    <!-- WASH ist ein Fachbegriff, kein Übersetzungsbedarf -->
+                    <span class="tag" role="listitem">WASH</span>
+                    <span class="tag" role="listitem" data-i18n="about.bio.tag8">Food Security</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section">
+    <div class="container">
+        <h2 class="section-title animate-on-scroll" data-i18n="about.timeline.title">
+            Professional Journey
+        </h2>
+
+        <!--
+            role="list" auf der Timeline und role="listitem" auf den Einträgen:
+            Screenreader erkennen das als Liste und navigieren besser.
+        -->
+        <div class="timeline" role="list">
+
+            <div class="timeline-item animate-on-scroll" role="listitem">
+                <div class="timeline-dot" aria-hidden="true">2018</div>
+                <div class="timeline-body">
+                    <h3 data-i18n="about.tl1.title">Founder &amp; Principal Consultant</h3>
+                    <div class="org">Carolina Clemens Consulting</div>
+                    <p data-i18n="about.tl1.text">Founded an independent consulting firm...</p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-on-scroll" role="listitem">
+                <div class="timeline-dot" aria-hidden="true">2013</div>
+                <div class="timeline-body">
+                    <h3 data-i18n="about.tl2.title">Senior Program Officer</h3>
+                    <div class="org">UNICEF – East Africa Regional Office</div>
+                    <p data-i18n="about.tl2.text">Led multi-country programs...</p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-on-scroll" role="listitem">
+                <div class="timeline-dot" aria-hidden="true">2009</div>
+                <div class="timeline-body">
+                    <h3 data-i18n="about.tl3.title">Program Manager</h3>
+                    <div class="org">World Bank – Social Protection Unit</div>
+                    <p data-i18n="about.tl3.text">Managed social protection programs...</p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate-on-scroll" role="listitem">
+                <div class="timeline-dot" aria-hidden="true">2006</div>
+                <div class="timeline-body">
+                    <h3 data-i18n="about.tl4.title">Field Coordinator</h3>
+                    <div class="org">MSF – Colombia &amp; Haiti</div>
+                    <p data-i18n="about.tl4.text">Coordinated emergency medical operations...</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+    <div class="container">
+        <h2 class="animate-on-scroll" data-i18n="about.cta.title">Ready to work together?</h2>
+        <p class="animate-on-scroll" data-i18n="about.cta.text">
+            Let's talk about how Carolina can support your next initiative.
+        </p>
+        <a href="mailto:contact@carolinaclemens.com" class="btn-cta animate-on-scroll"
+           data-i18n="about.cta.btn">Get in touch</a>
+    </div>
+</section>
