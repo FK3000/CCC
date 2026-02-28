@@ -480,23 +480,41 @@
     margin: 0;
 }
 
-/* Footer links — simple two-link row */
+/* Footer link columns */
 .footer-links {
     display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: var(--space-8);
 }
 
-.footer-links a {
-    font-family: var(--font-body);
-    font-size: var(--type-body-small-size);
+.footer-column {
+    min-width: 160px;
+}
+
+.footer-column h4 {
+    font-family: var(--font-heading);
+    font-size: var(--type-title-small-size);   /* 16px */
+    font-weight: var(--type-title-weight);
+    color: var(--color-on-surface);
+    margin-bottom: var(--space-4);
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-column a {
+    font-size: var(--type-body-small-size);    /* 14px */
     color: var(--color-on-surface-variant);
-    text-decoration: none;
     transition: color var(--transition-fast);
 }
 
-.footer-links a:hover {
+.footer-column a:hover {
     color: var(--color-primary);
 }
 

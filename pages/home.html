@@ -1,132 +1,43 @@
 <!--
-    pages/home.html – Home Page Content
-    =====================================
-    NUR Inhalt – kein <html>, <head>, <body>, Nav oder Footer!
-    Wird von router.js in <main id="content"> geladen.
+    pages/home.html – Home Page (What we do)
+    ==========================================
+    Content only – no <html>, <head>, <body>, nav or footer.
+    Page-specific styles are in css/home.css.
 
-    Alle Texte werden über data-i18n übersetzt.
-    CSS-Klassen kommen aus css/style.css.
+    Adding a new card:
+    1. Create a .html fragment in subpages/home/
+    2. Add the filename to the cards array in js/home.js
 -->
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-image">
-        <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-        <div class="container">
-            <h1 class="hero-title animate-on-scroll" data-i18n="home.hero.title">
-                Empowering Communities Through Strategic Development
-            </h1>
-            <p class="hero-subtitle animate-on-scroll" data-i18n="home.hero.subtitle">
-                Expert consulting for sustainable development aid and humanitarian projects
-            </p>
-            <div class="hero-buttons animate-on-scroll">
-                <!--
-                    data-page: Router-Attribut für Seitennavigation.
-                    href="#services" als Fallback wenn JS deaktiviert ist.
-                -->
-                <a href="#services" class="btn-hero-primary" data-page="services"
-                   data-i18n="home.hero.btn_services">Our Services</a>
-                <a href="#about" class="btn-hero-secondary" data-page="about"
-                   data-i18n="home.hero.btn_impact">See Our Impact</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- What We Do Section -->
-<section class="section what-we-do">
+<!-- Page Hero -->
+<section class="page-hero">
     <div class="container">
-        <h2 class="section-title animate-on-scroll" data-i18n="home.what.title">What We Do</h2>
-        <p class="section-intro animate-on-scroll" data-i18n="home.what.intro">
-            We provide strategic consulting services to NGOs, international organizations,
-            and governments working in development aid and humanitarian response.
+        <h1 class="animate-on-scroll" data-i18n="home.hero.title">What we do</h1>
+        <p class="animate-on-scroll" data-i18n="home.hero.subtitle">
+            Expertise across the full cycle of humanitarian and development work
         </p>
+    </div>
+</section>
 
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon blue-circle" aria-hidden="true"></div>
-                <h3 data-i18n="home.what.s1.title">Strategic Planning</h3>
-                <p data-i18n="home.what.s1.text">Comprehensive program design and implementation strategies.</p>
-            </div>
-
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon blue-circle" aria-hidden="true"></div>
-                <h3 data-i18n="home.what.s2.title">Capacity Building</h3>
-                <p data-i18n="home.what.s2.text">Training and organizational development for local partners.</p>
-            </div>
-
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon blue-circle" aria-hidden="true"></div>
-                <h3 data-i18n="home.what.s3.title">Impact Assessment</h3>
-                <p data-i18n="home.what.s3.text">Monitoring, evaluation, and impact measurement frameworks.</p>
-            </div>
-
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon blue-circle" aria-hidden="true"></div>
-                <h3 data-i18n="home.what.s4.title">Emergency Response</h3>
-                <p data-i18n="home.what.s4.text">Rapid assessment and coordination support for humanitarian emergencies.</p>
+<!-- Card Gallery -->
+<section class="home-gallery-section">
+    <div class="container">
+        <div class="home-gallery" id="wid-gallery">
+            <div class="wid-loading" id="wid-loading">
+                <div class="wid-spinner"></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Impact Section -->
-<section class="section impact-section">
+<!-- CTA -->
+<section class="home-cta">
     <div class="container">
-        <h2 class="section-title animate-on-scroll" data-i18n="home.impact.title">Our Impact</h2>
-        <div class="impact-stats">
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number" aria-label="15 plus">15+</div>
-                <div class="stat-label" data-i18n="home.impact.countries">Countries Served</div>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number" aria-label="50 plus">50+</div>
-                <div class="stat-label" data-i18n="home.impact.projects">Projects Completed</div>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number" aria-label="100 thousand plus">100K+</div>
-                <div class="stat-label" data-i18n="home.impact.lives">Lives Impacted</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Teaser Section -->
-<section class="section about-section">
-    <div class="container">
-        <div class="about-content">
-            <div class="about-text animate-on-scroll">
-                <h2 class="section-title" data-i18n="home.about.title">About Carolina Clemens</h2>
-                <p data-i18n="home.about.p1">With over 15 years of experience...</p>
-                <p data-i18n="home.about.p2">Carolina holds advanced degrees...</p>
-                <!--
-                    data-page="about": Router lädt pages/about.html
-                    beim Klick auf diesen Link.
-                -->
-                <a href="#about" class="btn-primary" data-page="about"
-                   data-i18n="home.about.btn">Learn more about Carolina</a>
-            </div>
-            <div class="about-image animate-on-scroll">
-                <div class="placeholder-image" aria-hidden="true"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="container">
-        <h2 class="animate-on-scroll" data-i18n="home.cta.title">Ready to Make a Difference?</h2>
+        <h2 class="animate-on-scroll" data-i18n="home.cta.title">Ready to work together?</h2>
         <p class="animate-on-scroll" data-i18n="home.cta.text">
-            Let's discuss how we can support your development and humanitarian initiatives.
+            Let's talk about how Carolina can support your next initiative.
         </p>
-        <!--
-            rel="noopener noreferrer": Sicherheits-Attribut für externe Links.
-            Bei mailto nicht zwingend nötig, aber schadet nicht.
-        -->
         <a href="mailto:contact@carolinaclemens.com" class="btn-cta animate-on-scroll"
-           data-i18n="home.cta.btn">Contact Us</a>
+           data-i18n="home.cta.btn">Get in touch</a>
     </div>
 </section>

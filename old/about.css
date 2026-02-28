@@ -3,6 +3,11 @@
    Carolina Clemens Consulting
    ============================================================ */
 
+
+/* ----------------------------------------------------------
+   1. PAGE HERO
+   ---------------------------------------------------------- */
+
 .page-hero {
     background: linear-gradient(135deg,
         var(--color-primary-dark) 0%,
@@ -18,26 +23,27 @@
     margin-bottom: var(--space-3);
 }
 
-.page-hero p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: var(--type-title-medium-size);
-    font-weight: 400;
-    margin: 0;
-}
-
 .about-hero {
     padding-block: var(--space-16) var(--space-12);
 }
 
 .about-hero-inner {
-    max-width: 45rem;
+    max-width: 720px;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
 }
 
-/* Caros Satz kursiv unter dem Titel */
+.about-hero-sub {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--type-title-medium-size);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+/* Caros Satz direkt unter dem Subtitle – gleicher Stil wie Subtitle aber kursiv */
 .about-hero-impact {
     color: rgba(255, 255, 255, 0.75);
     font-size: var(--type-body-large-size);
@@ -46,14 +52,9 @@
     padding-top: var(--space-2);
 }
 
-.highlight {
-    color: var(--color-primary);
-    font-weight: 600;
-}
-
 
 /* ----------------------------------------------------------
-   PROFILE SECTION
+   2. PROFILE SECTION
    ---------------------------------------------------------- */
 
 .profile-section {
@@ -67,13 +68,14 @@
     align-items: start;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
     .profile-grid {
-        grid-template-columns: 20rem 1fr;
+        grid-template-columns: 300px 1fr;
         gap: var(--space-12);
     }
 }
 
+/* Photo card */
 .photo-card {
     display: flex;
     flex-direction: column;
@@ -113,13 +115,7 @@
     margin-top: var(--space-1);
 }
 
-.bio-content h2 {
-    font-size: var(--type-headline-size);
-    color: var(--color-on-surface);
-    margin-bottom: var(--space-6);
-    line-height: 1.2;
-}
-
+/* Bio text */
 .bio-headline {
     font-size: var(--type-headline-size);
     color: var(--color-on-surface);
@@ -134,12 +130,18 @@
     margin-bottom: var(--space-4);
 }
 
+.highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
 .bio-divider {
-    height: 0.0625rem;
+    height: 1px;
     background-color: var(--color-outline-variant);
     margin-block: var(--space-6);
 }
 
+/* Key facts */
 .key-facts {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -166,6 +168,7 @@
     color: var(--color-on-surface);
 }
 
+/* Expertise tags */
 .expertise-heading {
     font-size: var(--type-label-large-size);
     font-weight: var(--type-label-weight);
@@ -187,7 +190,7 @@
     font-weight: var(--type-label-weight);
     color: var(--color-primary-dark);
     background-color: var(--color-primary-light);
-    border: 0.0625rem solid var(--color-outline-variant);
+    border: 1px solid var(--color-outline-variant);
     padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-full);
     transition: background-color var(--transition-fast),
@@ -202,8 +205,11 @@
 
 
 /* ----------------------------------------------------------
-   TIMELINE
-   Originales Design – nur Dots ersetzt durch Jahreszahl-Text
+   3. TIMELINE
+      - Keine Dots
+      - Vertikale Linie links
+      - Jahreszahl als Text-Label
+      - Aktuellstes oben
    ---------------------------------------------------------- */
 
 .timeline-section {
@@ -220,62 +226,41 @@
 
 .timeline {
     position: relative;
-    max-width: 45rem;
+    max-width: 720px;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: 0;                            /* items direkt aneinander, Linie verbindet */
 }
 
-/*
- * Vertikale Linie – weit genug links damit auch
- * Jahresspannen wie "2022–2025" komplett daneben passen.
- * Bekommt denselben Farbfade wie der CTA-Banner.
- */
-@keyframes lineColorFade {
-    0%   { background-color: var(--color-outline-variant); }
-    50%  { background-color: var(--color-primary); }
-    100% { background-color: var(--color-outline-variant); }
-}
-
+/* Durchgehende vertikale Linie */
 .timeline::before {
     content: '';
     position: absolute;
-    left: 1.25rem;                     /* weit links – Jahresspannen haben Platz */
+    left: 80px;                        /* ausgerichtet auf Mitte der Jahresspalte */
     top: 0;
     bottom: 0;
-    width: 0.125rem;
+    width: 2px;
     background-color: var(--color-outline-variant);
-    animation: lineColorFade 4s ease-in-out infinite;
 }
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 8.75rem 1fr;  /* breitere Jahresspalte für Spannen */
+    grid-template-columns: 100px 1fr;  /* Jahresspalte + Inhalt */
     gap: var(--space-6);
     align-items: start;
+    padding-bottom: var(--space-8);
 }
 
-/*
- * Jahreszahl rechtsbündig zur Linie.
- * padding-left schiebt den Text rechts von der Linie
- */
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Jahrestext – rechtsbündig zur Linie */
 .timeline-year {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding-left: var(--space-8);      /* Abstand von der Linie nach rechts */
-    padding-right: var(--space-4);     /* Abstand zur Card */
-    padding-top: var(--space-4);
-    position: relative;
-    z-index: 1;
-}
-
-/* Gleicher Farbfade wie CTA, leicht versetzt */
-@keyframes yearColorFade {
-    0%   { color: var(--color-primary); }
-    50%  { color: var(--color-primary-dark); }
-    100% { color: var(--color-primary); }
+    text-align: right;
+    padding-right: var(--space-5);     /* Abstand zur Linie */
+    padding-top: var(--space-4);       /* vertikale Ausrichtung mit Card-Titel */
 }
 
 .timeline-year span {
@@ -284,24 +269,35 @@
     font-weight: 700;
     color: var(--color-primary);
     white-space: nowrap;
-    text-align: right;
-    animation: yearColorFade 4s ease-in-out infinite;
-    animation-delay: 1s;               /* versetzt zur Linie */
 }
 
-/* Content Card – exakt wie vorher */
+/* Content Card */
 .timeline-body {
     background-color: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: var(--space-6);
+    padding: var(--space-5) var(--space-6);
     box-shadow: var(--elevation-1);
-    border-left: 0.1875rem solid var(--color-primary);
+    border-left: 3px solid var(--color-primary);
+    position: relative;
 }
 
+/* Kleiner horizontaler Connector von der Linie zur Card */
+.timeline-body::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--space-6) - 2px);  /* bis zur vertikalen Linie */
+    top: calc(var(--space-4) + 0.6em);       /* höhe des Titels */
+    width: var(--space-6);
+    height: 2px;
+    background-color: var(--color-outline-variant);
+}
+
+/* Education variant – graue Linie statt blau */
 .timeline-body--education {
     border-left-color: var(--color-on-surface-variant);
 }
 
+/* Current variant – dunkleres Blau + subtle glow */
 .timeline-body--current {
     border-left-color: var(--color-primary-dark);
     box-shadow: var(--elevation-2);
@@ -328,6 +324,7 @@
     margin: 0;
 }
 
+/* Skill tags in timeline */
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -341,20 +338,39 @@
     font-weight: var(--type-label-weight);
     color: var(--color-primary-dark);
     background-color: var(--color-primary-light);
-    border: 0.0625rem solid var(--color-outline-variant);
+    border: 1px solid var(--color-outline-variant);
     padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-full);
 }
 
-@media (max-width: 37.5rem) {
-    .timeline::before { display: none; }
-    .timeline-item { grid-template-columns: 1fr; }
-    .timeline-year { justify-content: flex-start; padding-right: 0; padding-top: 0; padding-bottom: var(--space-2); }
+/* Mobile */
+@media (max-width: 600px) {
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-year {
+        text-align: left;
+        padding-right: 0;
+        padding-top: 0;
+        padding-bottom: var(--space-2);
+    }
+
+    .timeline-body::before {
+        display: none;
+    }
 }
 
 
 /* ----------------------------------------------------------
-   CTA SECTION
+   4. CTA SECTION
+      - Kein Button, keine Mail
+      - Beide Zeilen gleicher Stil
+      - Dezenter Farbfade-Effekt
    ---------------------------------------------------------- */
 
 .about-cta {
@@ -365,6 +381,11 @@
     text-align: center;
 }
 
+/*
+ * Farbfade-Animation:
+ * Text wechselt sanft zwischen weiss und hellem Blau.
+ * Subtil genug um nicht zu nerven, auffällig genug um Blicke zu ziehen.
+ */
 @keyframes ctaColorFade {
     0%   { color: rgba(255, 255, 255, 1); }
     50%  { color: rgba(180, 230, 255, 0.85); }
@@ -381,8 +402,11 @@
     animation: ctaColorFade 4s ease-in-out infinite;
 }
 
+/* Zweite Zeile mit leichtem Delay damit es versetzt faded */
 .cta-animated--delay {
     animation-delay: 2s;
+    font-size: var(--type-title-large-size, var(--type-headline-size));
+    font-weight: 700;
     margin-top: var(--space-3);
 }
 
@@ -393,7 +417,7 @@
 
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(24px);
     transition: opacity var(--transition-slow),
                 transform var(--transition-slow);
 }

@@ -1,0 +1,75 @@
+<!--
+    _TEMPLATE.html
+    ─────────────────────────────────────────────────────
+    VORLAGE für neue Kacheln.
+
+    ANLEITUNG:
+    1. Diese Datei kopieren
+    2. Umbenennen: z.B. "my-service.html"
+    3. Inhalt anpassen
+    4. In home.html im cards-Array eintragen
+
+    WICHTIG: Kein <html>, <head> oder <body> Tag!
+-->
+
+<div class="wid-card">
+
+    <div class="wid-card-icon" aria-hidden="true">🌍</div>
+
+    <h2 class="wid-card-title">Service Title</h2>
+
+    <p class="wid-card-description">
+        A concise description of this service. 2–3 sentences.
+    </p>
+
+    <div class="wid-card-tags">
+        <span class="wid-tag">Tag One</span>
+        <span class="wid-tag">Tag Two</span>
+        <span class="wid-tag">Tag Three</span>
+    </div>
+
+</div>
+
+<style>
+.wid-card { max-width: 860px; }
+
+.wid-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.wid-card-title {
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1d1d1d;
+    margin: 0 0 12px 0;
+}
+
+.wid-card-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #5A6C7D;
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+    max-width: 680px;
+}
+
+.wid-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wid-tag {
+    background: #e8f4fb;
+    color: #0e7aad;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid #c0e2f5;
+}
+</style>

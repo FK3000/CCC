@@ -96,7 +96,7 @@
                     <img src="images/logo.svg" alt="" class="logo-globe" width="50" height="50"
                          aria-hidden="true">
                     <div class="logo-text-container">
-                        <span class="logo-text">clemens</span>
+                        <span class="logo-text">carolina clemens</span>
                         <span class="logo-subtitle">consulting</span>
                         <span class="logo-tagline">every life matters</span>
                     </div>
@@ -121,7 +121,13 @@
                     </li>
                 </ul>
 
-<button class="mobile-menu-toggle"
+                <div class="nav-actions">
+                    <!-- .btn-primary → components: filled button -->
+                    <a href="#contact" class="btn-primary" data-page="contact"
+                       data-i18n="nav.cta">Get in touch</a>
+                </div>
+
+                <button class="mobile-menu-toggle"
                         aria-expanded="false"
                         aria-controls="nav-menu"
                         aria-label="Toggle navigation menu">
@@ -160,25 +166,50 @@
          ═══════════════════════════════════════════════ -->
     <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="footer-main">
+            <div class="footer-content">
+                <div class="footer-main">
 
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="images/logo.svg" alt="" class="logo-globe"
-                             width="50" height="50" aria-hidden="true">
-                        <div class="logo-text-container">
-                            <span class="logo-text">clemens</span>
-                            <span class="logo-subtitle">consulting</span>
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <img src="images/logo.svg" alt="" class="logo-globe"
+                                 width="50" height="50" aria-hidden="true">
+                            <div class="logo-text-container">
+                                <span class="logo-text">carolina clemens</span>
+                                <span class="logo-subtitle" data-i18n="logo.subtitle">consulting</span>
+                            </div>
+                        </div>
+                        <p class="footer-tagline" data-i18n="logo.tagline">every life matters</p>
+                    </div>
+
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 data-i18n="footer.quicklinks">Quick Links</h4>
+                            <ul role="list">
+                                <li><a href="#home" data-page="home" data-i18n="nav.what_we_do">What we do</a></li>
+                                <li><a href="#about" data-page="about" data-i18n="nav.about">About us</a></li>
+                                <li><a href="#contact" data-page="contact" data-i18n="nav.contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4 data-i18n="footer.contact">Contact</h4>
+                            <ul role="list">
+                                <li>
+                                    <a href="/cdn-cgi/l/email-protection#dbb8b4b5afbab8af9bb8baa9b4b7b2b5bab8b7beb6beb5a8f5b8b4b6">
+                                        <span class="__cf_email__" data-cfemail="7f1c10110b1e1c0b3f1c1e0d101316111e1c131a121a110c511c1012">[email&#160;protected]</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+491234567890">+49 123 456 7890</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <p class="footer-tagline">every life matters</p>
-                </div>
 
-                <div class="footer-links">
-                    <a href="#contact" data-page="contact" data-i18n="nav.contact">Contact</a>
-                    <a href="#imprint" data-page="imprint" data-i18n="nav.imprint">Imprint</a>
                 </div>
+            </div>
 
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© 2026 Carolina Clemens Consulting. All rights reserved.</p>
             </div>
         </div>
     </footer>

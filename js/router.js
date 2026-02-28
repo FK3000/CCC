@@ -31,6 +31,7 @@ const router = (() => {
         'about':    'pages/about.html',
         'services': 'pages/services.html',
         'contact':  'pages/contact.html',
+        'imprint':  'pages/imprint.html',
     };
 
     /** Standard-Route wenn kein Hash in der URL ist */
@@ -150,8 +151,8 @@ const router = (() => {
         // Scroll-Position zurück nach oben
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Page-spezifische Scripts initialisieren (falls vorhanden)
-        initPageScripts();
+        // Initialize page-specific scripts
+        initPageScripts(route);
     }
 
 
@@ -241,10 +242,15 @@ const router = (() => {
      * (z.B. Scroll-Animationen, Formulare etc.)
      * Wird in main.js erweitert wenn neue Pages dazukommen.
      */
-    function initPageScripts() {
-        // Scroll-Animationen neu initialisieren
+    function initPageScripts(route) {
+        // Re-initialize scroll animations
         if (typeof main !== 'undefined' && main.initScrollAnimations) {
             main.initScrollAnimations();
+        }
+
+        // Initialize page-specific scripts
+        if (route === 'home' && typeof homePage !== 'undefined') {
+            homePage.init();
         }
     }
 

@@ -58,6 +58,8 @@
 #content {
     /* topbar (40px) + header (72px) = 112px total offset */
     padding-top: calc(var(--topbar-height) + var(--header-height));
+    /* extra space at bottom so content is not hidden behind fixed footer */
+    padding-bottom: var(--footer-height);
     min-height: 100vh;
 }
 
